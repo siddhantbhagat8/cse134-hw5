@@ -43,3 +43,11 @@
         <script src="" async defer></script>
     </body>
 </html>
+
+<label>Gender:</label>
+                    <input list="genders">
+                    <datalist>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Not Specify">Not Specify</option>
+                    </datalist>
