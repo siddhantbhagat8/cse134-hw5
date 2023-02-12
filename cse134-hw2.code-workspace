@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../cse134-hw1"
+		},
+		{
+			"name": "cse134-hw2",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cse134-hw2"
+	}
+}
