@@ -316,6 +316,7 @@ body {
     border: 1px solid #4abdac;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: box-shadow 0.4s; 
 }
 .skills_box:hover {
     transform: translateY(-2px);
@@ -396,6 +397,7 @@ body {
     border: 1px solid #4abdac;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: box-shadow 0.4s; 
 }
 .projects_box:hover {
     transform: translateY(-2px);
