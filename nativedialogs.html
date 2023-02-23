@@ -8,5 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <main>
+            <button id="alert">Alert</button>
+            <script>
+                document.getElementById("alert").addEventListener("click", showAlert);
+                function showAlert() {
+                    alert("Alert Pressed!");
+                }
+            </script>
+            <button class="button">Confirm</button>
+            <button class="button">Prompt</button>
+            <button class="button">Safer Prompt</button>
+        </main>
     </body>
 </html>
