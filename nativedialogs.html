@@ -11,14 +11,29 @@
         <main>
             <button id="alert">Alert</button>
             <script>
-                document.getElementById("alert").addEventListener("click", showAlert);
+                document.getElementById("alert").addEventListener("click", showAlert, true);
                 function showAlert() {
                     alert("Alert Pressed!");
                 }
             </script>
-            <button class="button">Confirm</button>
+            <button id="confirm">Confirm</button>
+            <script>
+                document.getElementById("confirm").addEventListener("click", showConfirm);
+                function showConfirm() {
+                    let result;
+                    if(confirm("Do you confirm this?") == true) {
+                        result = "Confirm Result: True";
+                    }
+                    else {
+                        result = "Confirm Result: False";
+                    }
+                    document.getElementById("confirm_result").innerHTML = result;
+                }
+            </script>
             <button class="button">Prompt</button>
             <button class="button">Safer Prompt</button>
+            <br>
+            <p id="confirm_result" style="border: 2 px solid black;"></p>
         </main>
     </body>
 </html>
