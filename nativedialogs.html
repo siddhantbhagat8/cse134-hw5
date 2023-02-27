@@ -30,11 +30,43 @@
                     }
                 }
             </script>
-            <button class="button">Prompt</button>
-            <button class="button">Safer Prompt</button>
+            <button id="prompt">Prompt</button>
+            <script>
+                document.getElementById("prompt").addEventListener("click", showPrompt);
+                function showPrompt() {
+                    var text = prompt("Enter some text:");
+                    if(text == null) {
+                        document.getElementById("showOutput").innerHTML = "User didn't enter anything";
+                    }
+                    else if(text == "") {
+                        document.getElementById("showOutput").innerHTML = "User didn't enter anything";
+                    }
+                    else {
+                        document.getElementById("showOutput").innerHTML = "Prompt Result: " + text;
+                    }
+                }
+            </script>
+            <button id="saferPrompt">Safer Prompt</button>
+            <script src="purify.js"></script>
+            <script>
+                document.getElementById("saferPrompt").addEventListener("click", showSaferPrompt);
+                function showSaferPrompt() {
+                    var safe_text = prompt("Enter some text:");
+                    if(safe_text == null) {
+                        document.getElementById("showOutput").innerHTML = "User didn't enter anything";
+                    }
+                    else if(safe_text == "") {
+                        document.getElementById("showOutput").innerHTML = "User didn't enter anything";
+                    }
+                    else {
+                        var sanitized_text = DOMPurify.sanitize(safe_text);
+                        document.getElementById("showOutput").innerHTML = "Prompt Result: " + sanitized_text;
+                    }
+                }
+            </script>
             <br>
             <hr>
-            <output id="showOutput"></output>
+            <output id="showOutput" style="display: inline-block; padding: 10px; border: 2px solid black; font-size: 20px;"></output>
         </main>
     </body>
 </html>
