@@ -6,6 +6,7 @@
         <title>Part 1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="purify.js"></script>
     </head>
     <body>
         <main>
@@ -20,20 +21,20 @@
             <script>
                 document.getElementById("confirm").addEventListener("click", showConfirm);
                 function showConfirm() {
-                    let result;
-                    if(confirm("Do you confirm this?") == true) {
-                        result = "Confirm Result: True";
+                    var result = confirm("Do you confirm this?");
+                    if(result == true) {
+                        document.getElementById("showOutput").textContent = "Confirm Result: True";
                     }
                     else {
-                        result = "Confirm Result: False";
+                        document.getElementById("showOutput").textContent = "Confirm Result: False";
                     }
-                    document.getElementById("confirm_result").innerHTML = result;
                 }
             </script>
             <button class="button">Prompt</button>
             <button class="button">Safer Prompt</button>
             <br>
-            <p id="confirm_result" style="border: 2 px solid black;"></p>
+            <hr>
+            <output id="showOutput"></output>
         </main>
     </body>
 </html>
