@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Part 2</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <main>
+      <script type="module" src="customdialogs.js"></script>
+      <script src="purify.js"></script>
+      <dialog id="alert">
+        <h1>Alert pressed!</h1>
+        <button id="ok">OK</button>
+      </dialog>
+      <button id="alertButton">Alert</button>
+      <dialog id="confirm">
+        <h1>Do you confirm this?</h1>
+        <menu>
+          <button id="no">No</button>
+          <button id="yes">Yes</button>
+        </menu>
+      </dialog>
+      <button id="confirmButton">Confirm</button>
+      <dialog id="prompt">
+        <h1>Enter some text:</h1>
+        <form action="post">
+          <input type="text" id="prompt_text"/>
+          <menu>
+            <button id="cancel">Cancel</button>
+            <button type="submit">Done</button>
+          </menu>
+        </form>
+      </dialog>
+      <button id="promptButton">Prompt</button>
+      <br />
+      <br />
+      <output
+        id="showOutput"
+        style="
+          display: inline-block;
+          padding: 10px;
+          border: 2px solid black;
+          font-size: 20px;
+        "
+      ></output>
+    </main>
+  </body>
+</html>
