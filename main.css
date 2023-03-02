@@ -499,7 +499,7 @@ body {
 }
 .switch-container .switch-btn:before{
 	position: absolute;
-	content: 'OFF';
+	content: 'ON';
 	font-size: 13px;
 	font-weight: bold;
 	height: 10px;
@@ -521,7 +521,7 @@ body.active #intro {
     background-image: url("bg_theme.png");
 }
 body.active .switch-container .switch-btn::before{
-	content: 'ON';
+	content: 'OFF';
 	left: calc(100% - calc(6px + 30px));
 	right: 3px;
     /* background-color: var(--burntorange); */
