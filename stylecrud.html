@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Part 4</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  </head>
+  <body>
+    <main>
+        <h1 style="font-weight: bold;">Blog Posts</h1>
+        <form style="margin-bottom: 20px;">
+          <label for="title" style="font-weight: bold;">Post Title:</label>
+          <input type="text" id="title" style="margin-left: 10px; padding: 5px; margin-top: 8px; margin-bottom: 8px; background-color: #4CAF50; color: white; border-radius: 6px; border-color:aqua;" />
+          <br />
+          <label for="date" style="font-weight: bold;">Post Date:</label>
+          <input type="date" id="date" style="margin-left: 12px; padding: 5px; margin-top: 8px; margin-bottom: 8px; background-color: #4CAF50; color: white; border-radius: 6px; border-color:aqua;" />
+          <br />
+          <label for="summary" style="font-weight: bold;">Post Summary:</label>
+          <input type="text" id="summary" style="margin-left: 3px; padding: 5px; margin-top: 8px; margin-bottom: 8px; background-color: #4CAF50; color: white; border-radius: 6px; border-color:aqua;" />
+          <br />
+          <i class="fa-solid fa-plus" style="margin-right: 5px;"></i>
+          <button type="button" id="add-post-btn" style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 6px; border-color:aqua;">Add Post</button>
+        </form>
+        <hr />
+        <h2 style="font-weight: bold;">Posts:</h2>
+        <ul id="posts">
+        </ul>
+        <script src="stylesposts.js"></script>
+    </main>
+  </body>
+</html>
