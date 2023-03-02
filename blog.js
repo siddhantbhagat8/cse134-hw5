@@ -1,116 +1,87 @@
-//import 'purify.js'
 let posts = [
   {
-    title: "First Post",
-    date: "2022-02-20",
-    summary: "This is the first post",
+    title: "NBA",
+    date: "2023-02-28",
+    summary: "This blog post is about the NBA",
   },
   {
-    title: "Second Post",
-    date: "2022-02-21",
-    summary: "This is the second post",
+    title: "NFL",
+    date: "2023-03-01",
+    summary: "This blog post is about the NFL",
   },
 ];
-
-// Get form elements
+// Defining post variables
 const titleInput = document.getElementById("title");
 const dateInput = document.getElementById("date");
 const summaryInput = document.getElementById("summary");
-const addPostBtn = document.getElementById("add-post-btn");
-
-// Get posts list element
+const addButton = document.getElementById("add-post-btn");
 const postsList = document.getElementById("posts");
-
-// Keep track of the index of the post being edited
-let editIndex = -1;
-
-// Function to add a new post or update an existing post
-function addOrUpdatePost() {
+// variable to keep trac of the post being edited
+let post_index = -1;
+addButton.addEventListener("click", addPost);
+// this adds a post and also updates the post if edit is clicked
+function addPost() {
   // Get form values
   const title = titleInput.value;//DOMPurify.sanitize(titleInput.value);
   const date = dateInput.value;//DOMPurify.sanitize(dateInput.value);
   const summary = summaryInput.value;//DOMPurify.sanitize(summaryInput.value);
-
-  if (editIndex === -1) {
-    // Add post to posts array
+  if (post_index == -1) {
     posts.push({ title, date, summary });
   } else {
-    // Update existing post in posts array
-    posts[editIndex].title = title;
-    posts[editIndex].date = date;
-    posts[editIndex].summary = summary;
-
-    // Reset edit index
-    editIndex = -1;
+    // Puts the values back in the form for editing
+    posts[post_index].title = title;
+    posts[post_index].date = date;
+    posts[post_index].summary = summary;
+    post_index = -1;
   }
-
-  // Clear form inputs
+  // Clear inputs after addition of a post
   titleInput.value = "";
   dateInput.value = "";
   summaryInput.value = "";
-
-  // Update posts list
-  updatePostsList();
+  // Reflect the changes made to post list
+  createList();
 }
-
-// Function to delete a post
+// this deletes a post from the post list
 function deletePost(index) {
-  // Remove post from posts array
   posts.splice(index, 1);
-
-  // Update posts list
-  updatePostsList();
+  // Reflect the changes made to post list
+  createList();
 }
-
-// Function to edit a post
+// this edits a post from the post list
 function editPost(index) {
   // Set form values to post data
   titleInput.value = posts[index].title; //DOMPurify.sanitize(posts[index].title);
   dateInput.value = posts[index].date;//DOMPurify.sanitize(posts[index].date);
   summaryInput.value = posts[index].summary;//DOMPurify.sanitize(posts[index].summary);
-
-  // Set edit index
-  editIndex = index;
-
-  // Update add post button text
-  addPostBtn.innerText = "Update Post";
+  post_index = index;
+  // Change the display of addButton
+  addButton.innerText = "Update Post";
 }
-
-// Function to update the posts list
-function updatePostsList() {
-  // Clear current posts list
+// creates the post list and reflects the changes when a post is added, edited, or deleted
+function createList() {
   postsList.innerHTML = "";
-
-  // Loop through posts array and create list items
   for (let i = 0; i < posts.length; i++) {
     const post = posts[i];
-
-    // Create list item with post data, edit button, and delete button
-    const listItem = document.createElement("li");
-    const postText = document.createTextNode(
-      `${post.title} - ${post.date} - ${post.summary}`
+    // create a list item as a post
+    const post_list = document.createElement("li");
+    const post_info = document.createTextNode(
+      "Post Title: " + post.title + " - Post Date: " + post.date + " - Post Summary: " + post.summary
     );
-    listItem.appendChild(postText);
-    const editBtn = document.createElement("button");
-    editBtn.innerText = "Edit";
-    editBtn.addEventListener("click", () => editPost(i));
-    listItem.appendChild(editBtn);
-    const deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
-    deleteBtn.addEventListener("click", () => deletePost(i));
-    listItem.appendChild(deleteBtn);
-
-    // Add list item to posts list
-    postsList.appendChild(listItem);
+    post_list.appendChild(post_info);
+    // add the edit button
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.addEventListener("click", () => editPost(i));
+    post_list.appendChild(editButton);
+    // add the delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener("click", () => deletePost(i));
+    post_list.appendChild(deleteButton);
+    postsList.appendChild(post_list);
   }
-
-  // Reset edit index and add post button text
-  editIndex = -1;
-  addPostBtn.innerText = "Add Post";
+  post_index = -1;
+  // keep the display for add button as add (default)
+  addButton.innerText = "Add Post";
 }
-
-// Add event listener to add post button
-addPostBtn.addEventListener("click", addOrUpdatePost);
-
-// Update posts list on page load
-updatePostsList();
+createList();
