@@ -66,3 +66,18 @@ export function postData() {
     };
     xhr.send(JSON.stringify(data));
   }
+  export function deleteData() {
+    let id = document.getElementById("ID").value;
+    let url = `https://httpbin.org/delete?id=${id}`;
+  
+    let xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        let response = JSON.parse(xhr.responseText);
+        let output = document.getElementById("response");
+        output.innerHTML = JSON.stringify(response, null, 2);
+      }
+    };
+    xhr.send();
+  }
