@@ -9,5 +9,40 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+        <h1 style="text-align: center;">HW 5</h1>
+        <hr> <br>
+        <form action="">
+            <label for="ID">Record ID:
+                <input type="number" id="ID" required>
+            </label>
+            <br> <br>
+            <label for="article_name">Article Name:
+                <input type="text" id="article_name" required>
+            </label>
+            <br> <br>
+            <label for="article_body">Article Body:
+                <textarea id="article_body" required></textarea>
+            </label>
+            <br> <br>
+            <label for="article_data">Date:
+                <input type="text" id="article_date" readonly>
+            </label>
+            <br> <br>
+            <button id="post_button">POST</button>
+            <button id="get_button">GET</button>
+            <button id="put_button">PUT</button>
+            <button id="delete_button">DELETE</button>
+        </form>
+        <br> <br>
+        <output id="response"></output>
+        <script type="module">
+            import { postData } from '/methodtest.js';
+            
+            const postButton = document.getElementById('post_button');
+            postButton.addEventListener('click', function(event) {
+              event.preventDefault();
+              postData();
+            });
+          </script>
     </body>
 </html>
