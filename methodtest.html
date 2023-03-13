@@ -27,6 +27,12 @@
             <label for="article_data">Date:
                 <input type="text" id="article_date" readonly>
             </label>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    let today_date = new Date().toLocaleString();
+                    document.getElementById("article_date").value = today_date;
+                })
+            </script>
             <br> <br>
             <button id="post_button">POST</button>
             <button id="get_button">GET</button>
@@ -36,12 +42,18 @@
         <br> <br>
         <output id="response"></output>
         <script type="module">
-            import { postData } from '/methodtest.js';
+            import { postData, getData, putData, deleteData } from "/methodtest.js";
             
-            const postButton = document.getElementById('post_button');
-            postButton.addEventListener('click', function(event) {
+            const postButton = document.getElementById("post_button");
+            postButton.addEventListener("click", function(event) {
               event.preventDefault();
               postData();
+            });
+
+            const getButton = document.getElementById("get_button");
+            getButton.addEventListener("click", function(event) {
+                event.preventDefault();
+                getData();
             });
           </script>
     </body>

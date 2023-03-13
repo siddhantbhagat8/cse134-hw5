@@ -1,28 +1,43 @@
 export function postData() {
-    const id = document.getElementById('ID').value;
-    const article_name = document.getElementById('article_name').value;
-    const article_body = document.getElementById('article_body').value;
-    const date = new Date().toString();
+    let id = document.getElementById("ID").value;
+    let article_name = document.getElementById("article_name").value;
+    let article_body = document.getElementById("article_body").value;
+    let date = new Date().toString();
   
-    const data = {
+    let data = {
       id,
       article_name,
       article_body,
       date
     };
   
-    const url = 'https://httpbin.org/post';
+    let url = "https://httpbin.org/post";
   
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
       if (xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        const output = document.getElementById('response');
+        let response = JSON.parse(xhr.responseText);
+        let output = document.getElementById("response");
         output.innerHTML = JSON.stringify(response, null, 2);
       }
     };
     xhr.send(JSON.stringify(data));
   }
+  export function getData() {
+    let url = "https://httpbin.org/get";
+  
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        let response = JSON.parse(xhr.responseText);
+        let output = document.getElementById("response");
+        output.innerHTML = JSON.stringify(response, null, 2);
+      }
+    };
+    xhr.send();
+  }
+   
   
