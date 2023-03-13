@@ -6,7 +6,7 @@
         <title>HW 5</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="methodstyle.css">
     </head>
     <body>
         <h1 style="text-align: center;">HW 5</h1>
@@ -34,13 +34,17 @@
                 })
             </script>
             <br> <br>
-            <button id="post_button">POST</button>
-            <button id="get_button">GET</button>
-            <button id="put_button">PUT</button>
-            <button id="delete_button">DELETE</button>
+            <div class="form-buttons">
+                <button id="post_button">POST</button>
+                <button id="get_button">GET</button>
+                <button id="put_button">PUT</button>
+                <button id="delete_button">DELETE</button>
+            </div>
         </form>
         <br> <br>
-        <output id="response"></output>
+        <div class="container">
+            <output id="response"></output>
+        </div>
         <script type="module">
             import { postData, getData, putData, deleteData } from "/methodtest.js";
             
