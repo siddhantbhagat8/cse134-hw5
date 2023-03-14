@@ -18,7 +18,10 @@ class ButtonCount extends HTMLElement {
             cursor: pointer;
             border: 1px solid #F5F5F5;
             color: #F5F5F5;
-            padding: 8px 8px 8px 8px;
+            padding: auto;
+            height: 40px;
+            width: 160px;
+
         }
         `;
         this.shadowRoot.appendChild(style);
