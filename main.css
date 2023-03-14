@@ -529,3 +529,11 @@ body.active .switch-container .switch-btn::before{
 
 /* #FFFFD2 */
 /* #C5FAD5 */
+
+#HW5 {
+    min-height: 20vh;
+    background-color: var(--babyblue);
+}
+#HW5 h1 {
+    text-align: center;
+}
